@@ -1,0 +1,159 @@
+/* --- TAMBAHAN KHUSUS VIDEO --- */
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -2; /* Paling belakang */
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Gelap transparan 40% */
+    z-index: -1;
+    backdrop-filter: blur(3px); /* Efek blur sedikit biar estetik */
+}
+
+/* RESET STANDARD */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* Background color dihapus karena diganti video */
+}
+
+/* WARNA & STYLE */
+:root {
+    --primary: #ff9f43; /* Ubah jadi Orange biar lebih pop */
+    --secondary: #54a0ff;
+    --dark: #000000;
+    --light: #ffffff;
+}
+
+.hidden { display: none !important; }
+
+/* CARD 3D - Sedikit Transparan agar video terlihat samar */
+.card-3d {
+    background: rgba(255, 255, 255, 0.95);
+    border: 3px solid var(--dark);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 10px 10px 0px var(--dark);
+    max-width: 500px;
+    width: 100%;
+    transition: transform 0.2s;
+}
+
+.login-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* INPUT & BUTTONS */
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 3px solid var(--dark);
+    border-radius: 8px;
+    outline: none;
+    box-shadow: inset 3px 3px 0px rgba(0,0,0,0.1);
+}
+
+.btn-3d {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary);
+    color: var(--dark);
+    border: 3px solid var(--dark);
+    border-radius: 8px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 5px 5px 0px var(--dark);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.btn-3d:active {
+    box-shadow: 0px 0px 0px var(--dark);
+    transform: translate(5px, 5px);
+}
+
+/* MUSIC BUTTON KHUSUS */
+.music-btn {
+    background: #00d2d3; /* Warna Cyan */
+    margin-top: 10px;
+    animation: pulse 1s infinite; /* Animasi detak jantung */
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+/* SIDEBAR & MAIN */
+.main-container {
+    display: flex;
+    width: 90%;
+    height: 90vh;
+    gap: 20px;
+}
+
+.sidebar {
+    flex: 1;
+    background: rgba(84, 160, 255, 0.95);
+    border: 3px solid var(--dark);
+    border-radius: 15px;
+    box-shadow: 8px 8px 0px var(--dark);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content {
+    flex: 3;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section { width: 100%; display: flex; justify-content: center; }
+
+/* ERROR MESSAGE */
+.error { color: red; font-weight: bold; margin-top: 10px; text-align: center; background: white; border: 2px solid black; padding: 5px; display: none; }
+.error.show { display: block; }
+
+/* SOCIAL COLORS */
+.instagram { background: #ff6b6b; color: white;}
+.whatsapp { background: #1dd1a1; color: white;}
+.logout { background: #ff4757; color: white; margin-top: auto; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .main-container { flex-direction: column; height: auto; }
+    .sidebar { width: 100%; }
+    .content { width: 100%; margin-bottom: 50px;}
+}
+
+

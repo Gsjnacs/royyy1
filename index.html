@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web 3D Admin - DJ Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <video autoplay muted loop id="myVideo">
+        <source src="background.mp4" type="video/mp4">
+        Browser kamu tidak support video background.
+    </video>
+    
+    <div class="video-overlay"></div>
+
+    <audio id="bgMusic" loop>
+        <source src="musik.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="login-container" id="loginPage">
+        <div class="card-3d login-card">
+            <h2><i class="fas fa-headphones"></i> login</h2>
+            <div class="input-group">
+                <input type="text" id="username" placeholder="Username (admin)">
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Password (1234)">
+            </div>
+            <button class="btn-3d" onclick="login()">GAS MASUK!</button>
+            <p id="errorMsg" class="error"></p>
+        </div>
+    </div>
+
+    <div class="main-container hidden" id="mainPage">
+        
+        <nav class="sidebar">
+            <div class="profile-icon">
+                <i class="fas fa-robot"></i>
+            </div>
+            <h3>Menu Admin</h3>
+            <button class="btn-3d menu-btn active" onclick="showSection('intro')">Perkenalan</button>
+            <button class="btn-3d menu-btn" onclick="showSection('cerita')">Cerita</button>
+            <button class="btn-3d menu-btn" onclick="showSection('game')">Game</button>
+            <button class="btn-3d menu-btn" onclick="showSection('contact')">Kontak</button>
+            
+            <hr style="width: 100%; border: 2px solid #000; margin: 10px 0;">
+            
+            <button class="btn-3d music-btn" onclick="toggleMusic()">
+                <i id="musicIcon" class="fas fa-volume-up"></i> Musik: ON
+            </button>
+
+            <button class="btn-3d menu-btn logout" onclick="logout()">Logout</button>
+        </nav>
+
+        <main class="content">
+            <section id="intro" class="section active-section">
+                <div class="card-3d">
+                    <h1>Welcome Party! 🎉</h1>
+                    <p>Selamat datang di roikhan amirulloh paling asik.</p>
+                    <p>Nikmati background 3D dan alunan musik DJ Fungkot selagi kamu bekerja atau bermain game di sini.</p>
+                </div>
+            </section>
+
+            <section id="cerita" class="section hidden">
+                <div class="card-3d">
+                    <h2><i class="fas fa-book"></i> Kisah Sang DJ</h2>
+                    <p>Dulu ada seorang programmer yang bosan dengan sunyi. Dia menyuntikkan bass `808` ke dalam kode HTML-nya.</p>
+                    <p>Server pun berguncang, dan lahirlah algoritma yang bisa berjoget.</p>
+                </div>
+            </section>
+
+            <section id="game" class="section hidden">
+                <div class="card-3d game-card">
+                    <h2><i class="fas fa-gamepad"></i> Tebak Angka</h2>
+                    <p>Tebak angka 1-10 sambil dengerin bass!</p>
+                    <input type="number" id="guessInput" placeholder="Angka..." class="game-input">
+                    <button class="btn-3d btn-game" onclick="playGame()">TEBAK!</button>
+                    <div id="gameResult" class="result-box"></div>
+                </div>
+            </section>
+
+            <section id="contact" class="section hidden">
+                <div class="card-3d">
+                    <h2><i class="fas fa-envelope"></i> Hubungi Admin</h2>
+                    <div class="contact-grid">
+                        <a href="#" class="btn-3d social-btn instagram"><i class="fab fa-instagram"></i> Instagram</a>
+                        <a href="#" class="btn-3d social-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
